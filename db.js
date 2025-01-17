@@ -11,15 +11,4 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
-// const pool = mysql.createPool({
-//   host: 'sql12.freesqldatabase.com',
-//   user: 'sql12753331',      
-//   password: 'g31tpNhd4n', 
-//   database: 'sql12753331',
-//   port: 3306,
-//   waitForConnections: true,
-//   connectionLimit: 10,
-//   queueLimit: 0
-// });
-
 export default pool;
