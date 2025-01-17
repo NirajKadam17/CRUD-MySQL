@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Yash",
+  "author": "Niraj",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.10",
