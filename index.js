@@ -1,4 +1,3 @@
-// niraj
 import express from 'express'
 import categoryRoutes from './routes/category.js';
 import productRoutes from './routes/product.js';
