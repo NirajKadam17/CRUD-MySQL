@@ -1,0 +1,58 @@
+<header>
+    <style>
+        header {
+            background-color: #1f2937; /* Dark background */
+            padding: 1rem 2rem;
+            color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 1rem;
+        }
+
+        .navbar-brand:hover {
+            text-decoration: underline;
+            color: #a5b4fc;
+        }
+
+        .d-flex {
+            display: flex;
+            align-items: center;
+        }
+
+        .d-flex a {
+            padding: 0.5rem 1rem;
+            margin-left: 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #4f46e5; /* Primary button color */
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .d-flex a:hover {
+            background-color: #4338ca;
+        }
+    </style>
+
+    <nav class="navbar">
+        <a class="navbar-brand" href="/">Inventory Management</a>
+        <a class="navbar-brand" href="/">Welcome</a>
+        <div class="d-flex">
+            <a href="/categories">Category List</a>
+        </div>
+    </nav>
+</header>
