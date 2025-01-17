@@ -6,7 +6,7 @@ export const listCategories = async (req, res) => {
   const offset = (page - 1) * limit;
 
   const categories = await getAllCategories(limit, offset);
-  const total = await countCategories(); // Add a function in the model for this.
+  const total = await countCategories();
   res.render('category', {
     category: categories,
     currentPage: page,
@@ -22,7 +22,7 @@ export const addCategory = async (req, res) => {
 
 export const showEditCategoryForm = async (req, res) => {
   const { id } = req.params;
-  const category = await getCategoryById(id); // Add a function in the model for this.
+  const category = await getCategoryById(id);
   res.render('updateCategory', { category });
 };
 
