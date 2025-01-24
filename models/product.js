@@ -1,7 +1,8 @@
 import pool from "../db.js";
 
 export const getAllProducts = async (limit, offset) => {
-  const [rows] = await pool.query(`
+  const [rows] = await pool.query(
+    `
     SELECT 
       Product.id AS ProductId,
       Product.name AS ProductName,
@@ -10,17 +11,20 @@ export const getAllProducts = async (limit, offset) => {
     FROM Product
     JOIN Category ON Product.categoryId = Category.id
     LIMIT ? OFFSET ?
-  `, [limit, offset]);
+  `,
+    [limit, offset]
+  );
   return rows;
 };
 
 export const countProducts = async () => {
-  const [[{ count }]] = await pool.query('SELECT COUNT(*) AS count FROM Product');
+  const [[{ count }]] = await pool.query("SELECT COUNT(*) AS count FROM Product");
   return count;
 };
 
 export const getProductById = async (id) => {
-  const [rows] = await pool.query(`
+  const [rows] = await pool.query(
+    `
     SELECT 
       Product.id AS ProductId,
       Product.name AS ProductName,
@@ -29,18 +33,29 @@ export const getProductById = async (id) => {
     FROM Product
     JOIN Category ON Product.categoryId = Category.id
     WHERE Product.id = ?
-  `, [id]);
+  `,
+    [id]
+  );
   return rows[0];
 };
 
 export const createProduct = async (name, categoryId) => {
-  await pool.query('INSERT INTO Product (name, categoryId) VALUES (?, ?)', [name, categoryId]);
+  await pool.query("INSERT INTO Product (name, categoryId) VALUES (?, ?)", [name, categoryId]);
 };
 
 export const updateProduct = async (id, name, categoryId) => {
-  await pool.query('UPDATE Product SET name = ?, categoryId = ? WHERE id = ?', [name, categoryId, id]);
+  await pool.query("UPDATE Product SET name = ?, categoryId = ? WHERE id = ?", [name, categoryId, id]);
 };
 
 export const deleteProduct = async (id) => {
-  await pool.query('DELETE FROM Product WHERE id = ?', [id]);
+  await pool.query("DELETE FROM Product WHERE id = ?", [id]);
+};
+
+export const getProductsByCategoryId = async (categoryId) => {
+  const [rows] = await pool.query("SELECT * FROM Product WHERE categoryId = ?", [categoryId]);
+  return rows;
+};
+
+export const deleteProductsByCategoryId = async (categoryId) => {
+  await pool.query("DELETE FROM Product WHERE categoryId = ?", [categoryId]);
 };
